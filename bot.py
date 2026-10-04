@@ -1,7 +1,6 @@
 import os
 
-os.environ["PINECONE_API_KEY"] = "pcsk_4H4PNT_Pyxpsvv2RhPQvRPiYnuvAvAEQx9X3Mfi2Ji9sMqd8poBRCwr7Sfq25QTC3bhYan"
-os.environ["GROQ_API_KEY"] = "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"
+
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -52,3 +51,6 @@ def get_rag_chain():
         | StrOutputParser()
     )
     return rag_chain
+
+# Export rag_chain directly to prevent ImportErrors
+rag_chain = get_rag_chain()
